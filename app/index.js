@@ -14,10 +14,12 @@ app.set('view engine', 'handlebars');
 
 const motivations = require('motivations');
 const pickOne = require('pick-one');
+const catImages = [1, 2, 3, 4, 5, 6];
 
 app.get('/', function(request, response) {
-    random_motivation = pickOne(motivations);
-    response.render('motivation', { motivation: random_motivation })
+    var random_motivation = pickOne(motivations);
+    var image = pickOne(catImages);
+    response.render('motivation', { motivation: random_motivation, image: image })
 });
 
 module.exports = app;
